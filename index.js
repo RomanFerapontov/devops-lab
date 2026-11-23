@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8001;
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/ping') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ data: 'pong' }));
+    res.end(JSON.stringify({ data: 'pong v2' }));
     return;
   }
 
