@@ -1,6 +1,6 @@
-const http = require('node:http');
+import http from 'node:http';
 
-const PORT = process.env.PORT || 8001;
+const PORT = Number(process.env.PORT) || 8001
 
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/ping') {
