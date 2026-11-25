@@ -1,0 +1,18 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-ltest
+    steps:
+      - name: Deploy via SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/key
+          chmod 600 ~/.ssh/key
+          ssh -i ~/.ssh/key -o StrictHostKeyChecking=accept-new \
+            root@${{ vars.SSH_HOST }} \
+            "cd /opt/devops-lab && git pull && systemctl restart devops-lab"
