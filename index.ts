@@ -1,19 +1,7 @@
-import http from 'node:http';
+import { createApp } from './app.ts';
 
-// const PORT = Number(process.env.PORT) || 8001;
-const PORT: number = 'abc'
+const PORT = Number(process.env.PORT) || 8001;
 
-const server = http.createServer((req, res) => {
-  if (req.method === 'GET' && req.url === '/ping') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ data: 'pong v3' }));
-    return;
-  }
-
-  res.writeHead(404, { 'Content-Type': 'application/json' });
-  res.end(JSON.stringify({ error: 'Not Found' }));
-});
-
-server.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
+createApp().listen(PORT, () => {
+	console.log(`Server listening on port ${PORT}`);
 });

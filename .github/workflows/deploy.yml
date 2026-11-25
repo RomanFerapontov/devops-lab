@@ -19,6 +19,7 @@ jobs:
           node-version: 26
       - run: npm ci
       - run: npm run typecheck
+      - run: npm run test
 
   deploy:
     needs: check
