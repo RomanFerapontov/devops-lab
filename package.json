@@ -2,7 +2,7 @@
 	"name": "simple-app",
 	"version": "1.0.0",
 	"description": "application for practice",
-	"main": "index.js",
+	"main": "index.ts",
 	"type": "module",
 	"scripts": {
 		"start": "node index.ts",
