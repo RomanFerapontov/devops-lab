@@ -31,5 +31,5 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/key
           chmod 600 ~/.ssh/key
           ssh -i ~/.ssh/key -o StrictHostKeyChecking=accept-new \
-            root@${{ vars.SSH_HOST }} \
-            "cd /opt/devops-lab && git pull && systemctl restart devops-lab"
+            deployer@${{ vars.SSH_HOST }} \
+            "cd /opt/devops-lab && git pull && sudo systemctl restart devops-lab"
